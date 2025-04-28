@@ -1,0 +1,12 @@
+com\docutavern\annotations\TavernSection.class
+com\docutavern\annotations\TavernNotes.class
+com\docutavern\annotations\TavernParam.class
+com\docutavern\annotations\TavernNote.class
+com\docutavern\annotations\TavernReturn.class
+com\docutavern\annotations\TavernStory.class
+com\docutavern\annotations\NoteType.class
+com\docutavern\annotations\TavernChapter.class
+com\docutavern\annotations\TavernCodeSnippet.class
+com\docutavern\annotations\TavernImage.class
+com\docutavern\annotations\TavernImages.class
+com\docutavern\annotations\TavernParams.class

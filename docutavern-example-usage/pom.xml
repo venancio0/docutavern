@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.docutavern</groupId>
+        <artifactId>docutavern-parent</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+        <relativePath>../docutavern-parent/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>docutavern-example-usage</artifactId>
+    <name>Docutavern :: Example Usage</name>
+    <description>An example project demonstrating how to use Docutavern annotations.</description>
+
+    <dependencies>
+        <!-- We only need the annotations at compile time -->
+        <dependency>
+            <groupId>com.docutavern</groupId>
+            <artifactId>docutavern-annotations</artifactId>
+            <scope>compile</scope> <!-- Or provided if annotations are Retention.SOURCE -->
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <!-- Version managed by parent -->
+                <configuration>
+                    <annotationProcessorPaths>
+                         <!-- The Docutavern Processor itself -->
+                        <path>
+                            <groupId>com.docutavern</groupId>
+                            <artifactId>docutavern-processor</artifactId>
+                            <version>${project.version}</version>
+                        </path>
+                         <!-- Dependencies needed BY the processor -->
+                         <path>
+                            <groupId>com.docutavern</groupId>
+                            <artifactId>docutavern-model</artifactId>
+                            <version>${project.version}</version>
+                         </path>
+                         <path>
+                            <groupId>com.docutavern</groupId>
+                            <artifactId>docutavern-generator</artifactId>
+                            <version>${project.version}</version>
+                         </path>
+                         <path>
+                            <groupId>org.commonmark</groupId>
+                            <artifactId>commonmark</artifactId>
+                            <version>${commonmark.version}</version>
+                         </path>
+                          <path> <!-- Processor uses AutoService annotations -->
+                             <groupId>com.google.auto.service</groupId>
+                             <artifactId>auto-service-annotations</artifactId>
+                             <version>1.1.1</version> <!-- Match processor's dependency -->
+                         </path>
+                    </annotationProcessorPaths>
+                    <compilerArgs>
+                        <!-- Pass the output directory option to the processor -->
+                        <!-- Using project build directory for robustness -->
+                        <arg>-Adocutavern.outputDir=${project.build.directory}/docutavern-docs</arg>
+                    </compilerArgs>
+                    <showWarnings>true</showWarnings> <!-- Good practice to see processor warnings -->
+                     <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.docutavern</groupId>
+        <artifactId>docutavern-parent</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+        <relativePath>../docutavern-parent/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>docutavern-processor</artifactId>
+    <name>Docutavern :: Annotation Processor</name>
+    <description>The core annotation processor that scans code and builds the documentation model.</description>
+
+    <dependencies>
+        <!-- Compile time dependencies -->
+        <dependency>
+            <groupId>com.docutavern</groupId>
+            <artifactId>docutavern-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.docutavern</groupId>
+            <artifactId>docutavern-model</artifactId>
+        </dependency>
+         <!-- Used for @AutoService annotation for processor registration -->
+         <dependency>
+            <groupId>com.google.auto.service</groupId>
+            <artifactId>auto-service-annotations</artifactId>
+            <scope>provided</scope> <!-- Only needed for compilation of the processor itself -->
+        </dependency>
+
+        <!-- Transitive dependency for generator needed during processing? -->
+        <!-- Typically processor only builds the model, generation happens later. -->
+        <!-- If generation happens *within* the processor, add generator dependency -->
+         <dependency>
+            <groupId>com.docutavern</groupId>
+            <artifactId>docutavern-generator</artifactId>
+        </dependency>
+
+    </dependencies>
+
+     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                 <configuration>
+                    <!-- Annotation processor for @AutoService -->
+                     <annotationProcessorPaths>
+                        <path>
+                            <groupId>com.google.auto.service</groupId>
+                            <artifactId>auto-service</artifactId>
+                            <version>1.1.1</version> <!-- Match annotation version -->
+                        </path>
+                    </annotationProcessorPaths>
+                 </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

@@ -1,0 +1,2 @@
+com\docutavern\processor\DocutavernProcessor.class
+META-INF\services\javax.annotation.processing.Processor

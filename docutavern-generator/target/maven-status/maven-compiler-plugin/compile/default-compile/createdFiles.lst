@@ -1,0 +1,2 @@
+com\docutavern\generator\MarkdownGenerator.class
+com\docutavern\generator\impl\SimpleMarkdownGenerator.class

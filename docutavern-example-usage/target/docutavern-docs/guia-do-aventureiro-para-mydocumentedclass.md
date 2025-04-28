@@ -15,7 +15,7 @@ Descrição vai aqui!
 Descrição vai aqui!
 
 ```java
-aaaa
+snippet vai aqui!
 ```
 
 ## Explorando a Masmorra (Método Principal)

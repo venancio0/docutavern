@@ -26,6 +26,7 @@
         <module>../docutavern-processor</module>
         <module>../docutavern-generator</module>
         <module>../docutavern-example-usage</module>
+        <module>../docutavern-cli</module>
     </modules>
 
     <dependencyManagement>

@@ -1,0 +1,8 @@
+com\docutavern\model\CodeSnippetModel.class
+com\docutavern\model\ChapterModel.class
+com\docutavern\model\DocumentationModel.class
+com\docutavern\model\ParamModel.class
+com\docutavern\model\ReturnModel.class
+com\docutavern\model\NoteModel.class
+com\docutavern\model\SectionModel.class
+com\docutavern\model\ImageModel.class
